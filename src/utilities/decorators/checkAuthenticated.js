@@ -1,6 +1,6 @@
 import React from 'react';
 import {getTicket} from '../Authentication';
-import MainLayout from '../../common/layouts/main/index';
+
 
 export default function checkAuthenticated(Component) {
     class AuthenticatedRoute extends React.Component {
@@ -13,16 +13,9 @@ export default function checkAuthenticated(Component) {
         }
 
         render() {
-            const page = React.createElement(
+            return React.createElement(
                 Component,
                 {...this.props},
-            );
-            return (
-                <MainLayout
-                    {...this.props}
-                >
-                    {page}
-                </MainLayout>
             )
         }
 
