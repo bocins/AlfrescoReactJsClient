@@ -1,7 +1,6 @@
 import React from 'react';
 import {getTicket} from '../Authentication';
 
-
 export default function checkAuthenticated(Component) {
     class AuthenticatedRoute extends React.Component {
 
