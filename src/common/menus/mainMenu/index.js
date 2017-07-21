@@ -1,29 +1,40 @@
 import React, {Component} from 'react';
 import {Toolbar, ToolbarGroup} from 'material-ui/Toolbar';
 import MenuItem from 'material-ui/MenuItem';
-import DropDownMenu from 'material-ui/DropDownMenu';
 import IconMenu from 'material-ui/IconMenu';
 import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-import {logout} from '../../../utilities/Authentication'
+import {logout} from '../../../utilities/Authentication';
 
 export default class MainMenu extends Component {
 
+    constructor(props){
+        super(props);
+        this.history = props.history;
+    }
+
     onExit = () => {
-        const {history} = this.props;
         logout().then(() =>
-            history.replace('/login'),
+            this.history.replace('/login'),
         );
+    };
+
+    goToPage = (url) => {
+        this.history.push(url);
     };
 
     render() {
         return (
             <Toolbar>
                 <ToolbarGroup>
-                    <DropDownMenu
-                    >
-
-                    </DropDownMenu>
+                    <MenuItem
+                        primaryText="Домашняя"
+                        onTouchTap={this.goToPage.bind(this, '/')}
+                    />
+                    <MenuItem
+                        primaryText="Пользователи"
+                        onTouchTap={this.goToPage.bind(this, '/users')}
+                    />
                 </ToolbarGroup>
                 <ToolbarGroup>
                     <IconMenu

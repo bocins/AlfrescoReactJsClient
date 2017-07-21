@@ -1,8 +1,7 @@
-import React, {Component} from 'react';
-import MainMenu from '../../common/menus/mainMenu';
+import React from 'react';
+import MainMenu from '../../menus/mainMenu/index';
 
-export default class MainPage extends Component {
-
+export default class MainLayout extends React.Component {
     render() {
         return (
             <div>
@@ -14,3 +13,5 @@ export default class MainPage extends Component {
         )
     }
 }
+
+
